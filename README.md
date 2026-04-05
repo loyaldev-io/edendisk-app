@@ -1,73 +1,89 @@
-# React + TypeScript + Vite
+# 🚀 EdenDisk App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+EdenDisk is a SaaS platform designed to manage storage systems with licensing, subscriptions and automation.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 💼 Overview
 
-## React Compiler
+EdenDisk helps businesses manage storage environments through a modern web application combined with a secure and scalable backend.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚙️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Frontend
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* React + TypeScript
+* Vite
+* Responsive UI
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Backend
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* Node.js + Express
+* MongoDB
+* JWT Authentication
+* Stripe Integration
+
+---
+
+## ✨ Features
+
+* 🔐 Secure authentication system
+* 🧠 License key management
+* 💳 Subscription system with Stripe
+* 📧 Email automation
+* ⚙️ REST API architecture
+
+---
+
+## 📁 Project Structure
+
+edendisk-app/
+├── frontend/
+├── backend/
+├── .env.example
+├── README.md
+
+---
+
+## 🚀 Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 2. Setup environment variables
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Create a `.env` file based on `.env.example`
+
+---
+
+### 3. Run the project
+
+```bash
+npm run dev
 ```
+
+---
+
+## 🌐 Live Demo
+
+👉 https://edendisk.com
+
+---
+
+## 💼 About
+
+Developed by **Loyaldev**, focused on building scalable SaaS platforms and automation systems.
+
+---
+
+## 📫 Contact
+
+* 🌐 https://loyaldev.io
+* 📧 [contact@loyaldev.io](mailto:contact@loyaldev.io)
