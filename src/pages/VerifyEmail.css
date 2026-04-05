@@ -1,0 +1,41 @@
+.verify-email {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top left, #0e4d3e, #46b497);
+}
+
+.verify-card {
+    background: rgb(0 0 0 / 53%);
+    padding: 40px 50px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 200, 150, 0.25);
+    max-width: 600px;
+}
+
+.verify-card h2 {
+    color: #00e6aa;
+    font-size: 22px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.verify-btn {
+    background: linear-gradient(135deg, #00c896, #00e6aa);
+    color: #0b1a26;
+    border: none;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 230, 170, 0.4);
+    transition: all 0.3s ease;
+}
+
+.verify-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 255, 190, 0.6);
+}

@@ -1,0 +1,176 @@
+/* === SECTION HERO === */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 3rem;
+    color: #1a1a1a;
+    background: linear-gradient(to right, #222222 0%, #630c49d6 50%, rgba(0, 0, 0, 0) 85%), url(/src/assets/img/banner/fullwidthdedicated-server.webp) center / cover no-repeat;
+    /* 🔹 Image de bannière — modifiable selon ton visuel */
+}
+
+/* === CONTAINER === */
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    max-width: 1400px;
+    width: 100%;
+}
+
+/* === IMAGE À GAUCHE === */
+.hero-image {
+    display: none;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    display: none;
+    width: 100%;
+    max-width: 520px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease;
+}
+
+.hero-image img:hover {
+    transform: translateY(-8px);
+}
+
+/* === TEXTE À DROITE === */
+.hero-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-left: 3.5rem;
+    gap: 1.5rem;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #efefef;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #f3f3f3;
+    max-width: 550px;
+}
+
+/* === LISTE AVANTAGES === */
+.hero-list {
+    margin-top: 0rem;
+    list-style: none;
+    padding: 0;
+}
+
+.hero-list li {
+    font-size: 1rem;
+    color: #e6e6e6;
+    margin-bottom: 0.5rem;
+}
+
+.hero-list li::before {
+    content: "✔";
+    color: #00c896;
+    margin-right: 0.6rem;
+}
+
+/* === BOUTONS HERO === */
+.hero-buttons {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* --- Styles communs (design original restauré) --- */
+.hero-buttons .btn {
+    display: inline-block;
+    position: relative;
+    padding: 0.9rem 1.8rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+    color: #fff;
+}
+
+/* --- Bouton vert (principal) --- */
+.hero-buttons .btn-primary {
+    background: #9e0095c7 50%;
+}
+
+/* --- Bouton secondaire --- */
+.hero-buttons .btn-secondary {
+    background: linear-gradient(to right, #222222 0%, #009e78 50%, #009e78 100%);
+    color: #fff;
+}
+
+/* --- Effet "wave light" EdenDisk --- */
+.hero-buttons .btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(0, 255, 190, 0.35),
+            transparent);
+    transition: left 2.8s ease;
+    z-index: -1;
+}
+
+/* --- Animation wave light au survol --- */
+.hero-buttons .btn:hover::before {
+    left: 100%;
+}
+
+/* --- Hover global --- */
+.hero-buttons .btn:hover {
+    background: #222;
+    color: #dcdcdc;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 200, 150, 0.4);
+}
+
+/* === ANIMATIONS SCROLL === */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: fadeInLeft 1s forwards;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    animation: fadeInRight 1s forwards;
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

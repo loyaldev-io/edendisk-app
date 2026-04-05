@@ -1,0 +1,74 @@
+.privacy {
+    background: radial-gradient(circle at top, #0a192f, #010b13);
+    color: #f1f1f1;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.privacy-container {
+    margin-top: 0px;
+    max-width: 900px;
+    width: 100%;
+    line-height: 1.7;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.privacy-container h1 {
+    font-size: 2.4rem;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 3px #00c896;
+}
+
+.privacy-container h2 {
+    font-size: 1.5rem;
+    color: #00e6aa;
+    margin-top: 2rem;
+}
+
+.privacy-container p {
+    font-size: 1rem;
+    color: #ddd;
+    margin-top: 0.6rem;
+}
+
+.privacy-container a {
+    color: #00e6aa;
+    text-decoration: none;
+}
+
+.privacy-container a:hover {
+    text-decoration: underline;
+}
+
+.privacy-container .warning {
+    color: #ffae42;
+    font-weight: bold;
+}
+
+.privacy-footer {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #bbb;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+.privacy-footer a {
+    color: #00e6aa;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.privacy-footer a:hover {
+    color: #00ffbf;
+    text-decoration: underline;
+}

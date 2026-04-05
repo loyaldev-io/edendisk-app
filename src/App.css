@@ -1,0 +1,2001 @@
+/* 🎨 Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.App {
+  width: 100%;
+  min-height: 100%;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #0d1117;
+  color: #f5f5f5;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* 🔝 Navbar */
+/* 🔝 Navbar intelligente */
+/* 🔝 Navbar intelligente */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+
+/* Logo */
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #00c896;
+}
+
+/* Liens menu */
+.navbar ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar a:hover {
+  color: #00c896;
+}
+
+/* Boutons Auth (Connexion / Inscription / Dashboard / Déconnexion) */
+.auth-buttons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.btn-login,
+.btn-register {
+  padding: 0.45rem 1.1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ✅ Bouton principal (Connexion / Dashboard) */
+.btn-login {
+  background: #00c896;
+  color: white;
+  border: 2px solid #00c896;
+}
+
+.btn-login:hover {
+  background: #009e78;
+  border-color: #009e78;
+}
+
+/* ✅ Bouton secondaire (Inscription) */
+.btn-register {
+  border: 2px solid #00c896;
+  color: #00c896;
+  background: transparent;
+}
+
+.btn-register:hover {
+  background: rgba(0, 200, 150, 0.1);
+}
+
+/* ❌ Bouton Déconnexion (rouge) */
+.btn-logout {
+  border: 2px solid #d9534f;
+  color: #d9534f;
+  background: transparent;
+}
+
+.btn-logout:hover {
+  background: rgba(217, 83, 79, 0.1);
+}
+
+/* 🔹 État normal (haut de page) */
+.navbar {
+  background: transparent;
+  color: white;
+}
+
+/* 🔹 État scrolled */
+.navbar.scrolled {
+  background: linear-gradient(135deg, #111111, #009e7800, #000000);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+
+/* ===============================================
+🍔 Préparation du burger (caché en version desktop)
+=============================================== */
+/* =========================================================
+🌑 SIDEBAR SOMBRE EDENDISK
+========================================================= */
+
+/* Overlay sombre */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 999;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Sidebar principale */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  /* ✅ elle vient maintenant de la droite */
+  height: 100%;
+  width: 260px;
+  background: rgba(10, 15, 20, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.4);
+  transform: translateX(100%);
+  /* ✅ elle est cachée à droite */
+  transition: transform 0.4s ease;
+  z-index: 2000;
+}
+
+.sidebar.show {
+  transform: translateX(0);
+  /* ✅ s'affiche depuis la droite */
+}
+
+
+/* --- Header du menu --- */
+.sidebar-header {
+  text-align: center;
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+.sidebar-header .avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #00c896;
+  margin-bottom: 0.6rem;
+}
+
+.sidebar-header h3 {
+  color: #00c896;
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.sidebar-header p {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.sidebar-header hr {
+  margin-top: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 200, 150, 0.15);
+}
+
+/* --- Menu items --- */
+.sidebar-menu {
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-menu li a {
+  color: #eaeaea;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.5rem;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.sidebar-menu li a:hover {
+  color: #00c896;
+  border-left: 3px solid #00c896;
+  background: rgba(0, 200, 150, 0.08);
+}
+
+/* --- Footer (auth boutons) --- */
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid rgba(0, 200, 150, 0.15);
+  gap: 0.8rem;
+}
+
+.sidebar-footer .btn-login,
+.sidebar-footer .btn-register,
+.sidebar-footer .btn-logout {
+  width: 85%;
+  text-align: center;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Connexion / Dashboard */
+.sidebar-footer .btn-login {
+  background: #00c896;
+  color: white;
+  border: 2px solid #00c896;
+}
+
+.sidebar-footer .btn-login:hover {
+  background: #00a87a;
+}
+
+/* Inscription */
+.sidebar-footer .btn-register {
+  border: 2px solid #00c896;
+  color: #00c896;
+  background: transparent;
+}
+
+.sidebar-footer .btn-register:hover {
+  background: rgba(0, 200, 150, 0.1);
+}
+
+/* Déconnexion */
+.sidebar-footer .btn-logout {
+  border: 2px solid #d9534f;
+  color: #d9534f;
+  background: transparent;
+}
+
+.sidebar-footer .btn-logout:hover {
+  background: rgba(217, 83, 79, 0.1);
+}
+
+
+
+.sidebar-footer .btn-login,
+.sidebar-footer .btn-logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.sidebar-footer .btn-login svg,
+.sidebar-footer .btn-logout svg {
+  flex-shrink: 0;
+}
+
+/* =========================================================
+🍔 Burger pour cette version
+========================================================= */
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.4rem;
+  z-index: 1101;
+  background: none;
+  border: none;
+}
+
+.burger span {
+  width: 100%;
+  height: 3px;
+  background: #e4e4e4;
+  border-radius: 3px;
+  transition: all 0.35s ease;
+}
+
+.burger.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+
+
+
+
+
+/* ⭐ Features */
+/* ⭐ Features */
+.features {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #000000, #0f3229, #000000);
+}
+
+.features h2 {
+  font-size: 2.3rem;
+  margin-bottom: 3rem;
+  color: #00c896;
+}
+
+/* Grille responsive */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: #111;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 35px rgba(0, 200, 150, 0.5);
+}
+
+/* Icônes */
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #00c896;
+}
+
+/* Titres & texte */
+.feature-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: #00e0aa;
+}
+
+.feature-card p {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Animation apparition des Features */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  animation: fadeInUp 0.8s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+
+
+/* 🖼 Showcase Section */
+.showcase {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #040404, #2d2d2d, #000000);
+  color: #f5f5f5;
+  text-align: center;
+}
+
+.showcase h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: #00c896;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 🎨 Onglets */
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-bottom: 2.5rem;
+}
+
+.tab-btn {
+  background: #222;
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.tab-btn:hover {
+  background: #00c896;
+  transform: translateY(-3px);
+  box-shadow: 0px 4px 10px rgba(0, 200, 150, 0.4);
+}
+
+.tab-btn.active {
+  background: #00c896;
+  font-weight: bold;
+  color: #111;
+  box-shadow: 0px 4px 12px rgba(0, 200, 150, 0.6);
+}
+
+/* 📑 Contenu des onglets */
+.tab-panel {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  position: relative;
+}
+
+.tab-content {
+  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  color: #f5f5f5;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.tab-content h3 {
+  margin-bottom: 1.2rem;
+  color: #00c896;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.tab-content p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.tab-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tab-content li {
+  margin-bottom: 0.8rem;
+  font-size: 1.05rem;
+}
+
+/* ✨ Animations des onglets */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-left {
+  animation: slideLeft 0.6s ease-in-out;
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-right {
+  animation: slideRight 0.6s ease-in-out;
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 🖼 Image Showcase */
+.showcase-img {
+  max-width: 200px;
+  margin: 2rem auto 0;
+  display: block;
+  filter: drop-shadow(0px 0px 10px rgba(0, 200, 150, 0.5));
+  transition: transform 0.3s;
+}
+
+.showcase-img:hover {
+  transform: scale(1.05);
+}
+
+/* 🎯 Boutons CTA */
+.showcase-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.btn-primary {
+  background: #00c896;
+  color: #111;
+  font-weight: bold;
+  border: none;
+  padding: 0.9rem 1.7rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+  background: #00e6a8;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 200, 150, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #00c896;
+  color: #00c896;
+  font-weight: bold;
+  padding: 0.9rem 1.7rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #00c896;
+  color: #111;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 200, 150, 0.4);
+}
+
+.lang-icon {
+  font-size: 1.4rem;
+  margin-right: 0.5rem;
+  color: #00c896;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: bold;
+}
+
+
+.flag-icon {
+  width: 28px;
+  height: 18px;
+  object-fit: cover;
+  margin-right: 6px;
+  vertical-align: middle;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.languages {
+  margin-top: 1rem;
+  font-weight: bold;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.languages .lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+/* ⚙️ Configuration requise */
+.config-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.config-card {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.config-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 200, 150, 0.3);
+}
+
+.config-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #00c896;
+  text-align: left;
+}
+
+.config-card p {
+  font-size: 1rem;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+/* Responsive : empilement sur mobile */
+@media (max-width: 768px) {
+  .config-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+/* 🎨 Galerie des captures */
+.screenshots-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.screenshots-gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.screenshots-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 200, 150, 0.4);
+}
+
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, rgba(0, 15, 10, 0.98), rgba(0, 0, 0, 0.95));
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  animation: fadeInLightbox 0.4s ease forwards;
+}
+
+/* ✨ Image centrale */
+.lightbox-img {
+  max-width: 85%;
+  max-height: 80%;
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(0, 200, 150, 0.35);
+  border: 1px solid rgba(0, 200, 150, 0.2);
+  animation: zoomInLightbox 0.4s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lightbox-img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(0, 200, 150, 0.45);
+}
+
+/* ❌ Bouton Fermer */
+.lightbox-close {
+  position: fixed;
+  top: 22px;
+  right: 25px;
+  font-size: 2.3rem;
+  color: #00c896;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  cursor: pointer;
+  z-index: 3100;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(0, 200, 150, 0.4);
+  transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+  background: rgba(0, 200, 150, 0.2);
+  transform: rotate(90deg);
+}
+
+/* ⬅️➡️ Flèches Navigation */
+.lightbox-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.3rem;
+  color: #00c896;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 200, 150, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3100;
+  padding: 0.5rem 0.9rem;
+  box-shadow: 0 0 10px rgba(0, 200, 150, 0.3);
+  transition: all 0.3s ease;
+}
+
+.lightbox-arrow.left {
+  left: 25px;
+}
+
+.lightbox-arrow.right {
+  right: 25px;
+}
+
+.lightbox-arrow:hover {
+  background: rgba(0, 200, 150, 0.25);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* ✨ Animations d’apparition */
+@keyframes fadeInLightbox {
+  from {
+    opacity: 0;
+    background: rgba(0, 0, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    background: radial-gradient(circle at center, rgba(0, 15, 10, 0.98), rgba(0, 0, 0, 0.95));
+  }
+}
+
+@keyframes zoomInLightbox {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+.tutorial-video {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.tutorial-video video,
+.tutorial-video iframe {
+  max-width: 800px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* 🎤 FAQ améliorée avec animation */
+.faq details {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #1a1a1a;
+  border-radius: 8px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq summary {
+  font-weight: bold;
+  color: #00c896;
+  cursor: pointer;
+  outline: none;
+  list-style: none;
+  /* enlève la flèche par défaut */
+  position: relative;
+  padding-right: 25px;
+}
+
+.faq summary::after {
+  content: "➕";
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #ccc;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.faq details[open] summary::after {
+  content: "➖";
+  transform: rotate(180deg);
+  color: #00c896;
+}
+
+/* Contenu animé */
+.faq-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.faq details[open] .faq-content {
+  max-height: 500px;
+  /* assez grand pour contenir du texte */
+  opacity: 1;
+}
+
+/* Texte */
+.faq p {
+  margin-top: 0.8rem;
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.faq details[open] {
+  background: #222;
+  box-shadow: 0 4px 15px rgba(0, 200, 150, 0.2);
+}
+
+
+
+.trial-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.trial-form input,
+select {
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: #222;
+  color: #f5f5f5;
+}
+
+.trial-form input::placeholder {
+  color: #999;
+}
+
+select {
+  cursor: pointer;
+}
+
+
+
+
+/* Page Login */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #111, #009e78, #000);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Carte Login */
+.login-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+/* Titre */
+.login-card h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.login-card h2 span {
+  color: #00c896;
+}
+
+/* Champs */
+.login-card input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.login-card input:focus {
+  border-color: #00c896;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 200, 150, 0.4);
+}
+
+/* Bouton */
+.login-card button {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #00c896;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-card button:hover {
+  background: #009e78;
+}
+
+/* Messages */
+.message {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.message.success {
+  color: #00c896;
+}
+
+.message.error {
+  color: #d9534f;
+}
+
+/* Lien inscription */
+.register-link {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.register-link a {
+  color: #00c896;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+
+
+.forgot-link {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #bbb;
+}
+
+.forgot-link .link {
+  color: #00e6aa;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.forgot-link .link:hover {
+  color: #00ffbf;
+  text-decoration: underline;
+}
+
+
+
+
+/* Page Dashboard */
+.dashboard-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #111, #1e1e1e, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Carte principale */
+.dashboard-card {
+  margin-top: 100px !important;
+  background: #f9f9f9;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 900px;
+  margin: 3rem 0;
+  /* espace au-dessus et en dessous */
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Titres */
+.dashboard-card h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.dashboard-card h1 span {
+  color: #00c896;
+}
+
+.user-email {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+/* Boutons */
+.dashboard-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btn-dashboard {
+  padding: 0.9rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: #00c896;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 1rem;
+}
+
+.btn-dashboard:hover {
+  background: #009e78;
+}
+
+/* Bouton Déconnexion (rouge) */
+.btn-logout {
+  padding: 0.9rem 1.2rem;
+  border-radius: 8px;
+  border: 2px solid #d9534f;
+  background: transparent;
+  color: #d9534f;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  background: rgba(217, 83, 79, 0.1);
+}
+
+
+
+
+/* === Wrapper général du Dashboard === */
+.dashboard-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #000000, #212121, #004a37, #000000);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* === Header Dashboard (logo + titre) === */
+.dashboard-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background: linear-gradient(135deg, #00513d, #183a32, #000);
+  color: white;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.dashboard-logo {
+  width: 42px;
+  height: 42px;
+}
+
+.dashboard-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #00c896;
+  letter-spacing: 1px;
+}
+
+/* === Carte centrale === */
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  max-width: 650px;
+  width: 90%;
+  margin-top: 2rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #ddd;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Animation apparition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Titres === */
+.dashboard-card h2 {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.dashboard-card h2 span {
+  color: #00c896;
+}
+
+.user-email {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+/* === Boutons actions === */
+.dashboard-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-dashboard {
+  padding: 0.9rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: #00c896;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 1rem;
+  width: 220px;
+}
+
+.btn-dashboard:hover {
+  background: #009e78;
+}
+
+/* === Bouton Déconnexion (rouge) === */
+.btn-logout {
+  padding: 0.9rem 1.2rem;
+  border-radius: 8px;
+  border: 2px solid #d9534f;
+  background: transparent;
+  color: #d9534f;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 220px;
+}
+
+.btn-logout:hover {
+  background: rgba(217, 83, 79, 0.1);
+}
+
+
+
+
+/* === Page Licenses === */
+.licenses-page {
+  min-height: 100vh;
+  background: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+/* === Card principale === */
+.licenses-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 1000px;
+  width: 100%;
+  text-align: left;
+  /* 📌 Alignement pro */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e6e9ef;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Titre principal === */
+.licenses-card h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #00b894;
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* === Section Boutons === */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-dashboard {
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #00c896, #00a57a);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  display: inline-block;
+  box-shadow: 0 3px 8px rgba(0, 200, 150, 0.25);
+}
+
+.btn-dashboard:hover {
+  background: linear-gradient(135deg, #00a57a, #008f66);
+  transform: translateY(-2px);
+}
+
+/* === Select durée + total === */
+.checkout-options {
+  margin-top: 1rem;
+}
+
+.year-select {
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+.total {
+  margin-top: 0.6rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* === Messages === */
+.license-message {
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.license-message.success {
+  background: #d4f8e8;
+  color: #006644;
+}
+
+.license-message.error {
+  background: #fde2e1;
+  color: #a94442;
+}
+
+/* === Tableau Licences === */
+.licenses-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.licenses-table th,
+.licenses-table td {
+  padding: 1rem;
+  text-align: left;
+  /* 📌 Alignement pro */
+  border-bottom: 1px solid #eaeaea;
+}
+
+.licenses-table th {
+  background: #00c896;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.licenses-table tr:hover {
+  background: #f9f9f9;
+}
+
+.licenses-table td {
+  color: #333;
+  font-family: "Consolas", monospace;
+  word-break: break-word;
+}
+
+/* === Badges type licence === */
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.badge-trial {
+  background: #f1c40f;
+  color: #000;
+}
+
+.badge-paid {
+  background: #2ecc71;
+  color: white;
+}
+
+/* === Statut === */
+.badge-active {
+  color: #0f5132;
+  background: #d1e7dd;
+  border: 1px solid #0f5132;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.badge-expired {
+  color: #842029;
+  background: #f8d7da;
+  border: 1px solid #842029;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* === Boutons d’action === */
+.copy-btn {
+  margin-left: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.copy-btn:hover {
+  transform: scale(1.2);
+}
+
+.renew-btn {
+  background: #3498db;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 2px;
+  transition: all 0.3s ease;
+}
+
+.renew-btn:hover {
+  background: #2980b9;
+  transform: scale(1.05);
+}
+
+
+
+
+
+/* === Pages Paiement Stripe === */
+.payment-result {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+
+.payment-result h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.payment-result p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+/* Bouton retour */
+.payment-result .btn-dashboard {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: #0d94d3;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.payment-result .btn-dashboard:hover {
+  background-color: #0a78a9;
+}
+
+/* Animation apparition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+/* === Carte achat licence === */
+.license-product-card {
+  display: flex;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  margin: 2rem 0;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.license-left {
+  flex: 1;
+  background: linear-gradient(135deg, #1a1a1a, #008663);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.license-image {
+  max-width: 90%;
+  border-radius: 10px;
+}
+
+.license-right {
+  flex: 2;
+  padding: 2rem;
+  text-align: left;
+}
+
+.license-right h3 {
+  color: #00b894;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.license-desc {
+  color: #444;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.license-options {
+  margin-bottom: 1.5rem;
+}
+
+.license-select {
+  margin-left: 0.6rem;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.license-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00c896, #00a57a);
+  border: none;
+  color: white;
+  padding: 0.8rem 1.4rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #00a57a, #00976a);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 0.8rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #eaeaea;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .license-product-card {
+    flex-direction: column;
+  }
+
+  .license-left {
+    padding: 1.5rem;
+  }
+
+  .license-right {
+    padding: 1.5rem;
+  }
+}
+
+
+.license-options label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+
+
+
+
+/* === Boutons du haut (sous le titre) === */
+.top-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.top-actions .btn-dashboard {
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #00c896, #00a57a);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 200, 150, 0.3);
+}
+
+.top-actions .btn-dashboard:hover {
+  background: linear-gradient(135deg, #00a57a, #008f66);
+  transform: translateY(-2px);
+}
+
+/* Version mobile */
+@media (max-width: 768px) {
+  .top-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .top-actions .btn-dashboard {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+
+
+
+
+/* === NAVBAR === */
+.dashboard-navbar {
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(90deg, #004d40, #009e78);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid #00c896;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.navbar-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+/* === Bouton Déconnexion === */
+.btn-logout-navbar {
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  border: 2px solid white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.btn-logout-navbar:hover {
+  background: white;
+  color: #009e78;
+  transform: scale(1.05);
+}
+
+/* Responsive (mobile) */
+@media (max-width: 768px) {
+  .dashboard-navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .navbar-title {
+    font-size: 1.2rem;
+  }
+
+  .btn-logout-navbar {
+    margin-top: 0.5rem;
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+
+
+
+/* === Page Settings === */
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.form-group {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.4rem;
+}
+
+.form-group input {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #00c896;
+  box-shadow: 0 0 6px rgba(0, 200, 150, 0.3);
+}
+
+.subtitle {
+  color: #555;
+  margin-top: 0.3rem;
+  font-size: 0.95rem;
+}
+
+/* === Messages === */
+.message {
+  margin-top: 1rem;
+  font-weight: bold;
+  padding: 0.8rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.message.success {
+  background: #d4f8e8;
+  color: #0f5132;
+}
+
+.message.error {
+  background: #fde2e1;
+  color: #842029;
+}
+
+
+
+.settings-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-update,
+.btn-back {
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btn-update {
+  background: #00c896;
+  color: white;
+}
+
+.btn-update:hover {
+  background: #00a67d;
+  transform: scale(1.05);
+}
+
+.btn-back {
+  background: #f1f1f1;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.btn-back:hover {
+  background: #ddd;
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ⬇️ Footer */
+.footer {
+  padding: 2rem;
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #00c896;
+  margin-left: 2px;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #00e0aa;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 8rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .features-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}

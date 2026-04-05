@@ -1,0 +1,749 @@
+/* =========================================================
+📲 MOBILES (max-width: 768px)
+========================================================= */
+@media (max-width: 768px) {
+
+    /* =========================================================
+    🌍 GLOBAL
+    ========================================================== */
+    body {
+        overflow-x: hidden;
+        padding: 0;
+        margin: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    /* =========================================================
+    🧭 NAVBAR MOBILE
+    ========================================================== */
+    .navbar {
+        flex-direction: row;
+        /* ✅ pour aligner logo + burger sur la même ligne */
+        justify-content: space-between;
+        /* ✅ espace entre logo à gauche et burger à droite */
+        align-items: center;
+        background: linear-gradient(135deg, #111, #1b211f, #000);
+        backdrop-filter: blur(10px);
+        padding: 0.8rem 1rem;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(0, 200, 150, 0.1);
+    }
+
+    /* --- Logo aligné à gauche --- */
+    .navbar .logo {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        /* ✅ alignement à gauche */
+        gap: 0.6rem;
+    }
+
+    /* --- Texte du logo --- */
+    .logo-text {
+        font-size: 1.4rem;
+        color: #00c896;
+        font-size: 1px bold;
+    }
+
+
+    /* =========================================================
+    🍔 BURGER BUTTON (STYLISÉ)
+    ========================================================== */
+    .burger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        position: absolute;
+        right: 1.5rem;
+        top: 1.4rem;
+        z-index: 1100;
+        background: none;
+        border: none;
+        transition: transform 0.3s ease;
+    }
+
+    .burger span {
+        width: 100%;
+        height: 3px;
+        background: #00c896;
+        border-radius: 2px;
+        transition: all 0.35s ease;
+    }
+
+    /* Animation croix fluide */
+    .burger.open span:nth-child(1) {
+        transform: rotate(45deg) translateY(8px);
+    }
+
+    .burger.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger.open span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-8px);
+    }
+
+    .burger.open {
+        transform: rotate(180deg);
+    }
+
+    /* =========================================================
+    📜 MENU MOBILE
+    ========================================================== */
+    .menu,
+    .auth-buttons {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(5, 10, 15, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 0 0 16px 16px;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: all 0.4s ease;
+    }
+
+    .menu.show,
+    .auth-buttons.show {
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
+        padding: 1.4rem 0;
+        animation: slideDown 0.35s ease forwards;
+    }
+
+    /* --- Boutons d’authentification visibles avec le menu --- */
+    .menu.show+.auth-buttons {
+        max-height: 400px;
+        opacity: 1;
+        visibility: visible;
+        padding: 1.2rem 0 2rem 0;
+        animation: slideDown 0.35s ease forwards;
+    }
+
+
+    /* --- Liens du menu --- */
+    .menu li {
+        margin: 1rem 0;
+        list-style: none;
+    }
+
+    .menu li a {
+        color: #f5f5f5;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        letter-spacing: 0.3px;
+        transition: all 0.25s ease;
+    }
+
+    .menu li a:hover {
+        color: #00c896;
+        transform: scale(1.05);
+    }
+
+    /* --- Animation slide douce --- */
+    @keyframes slideDown {
+        from {
+            transform: translateY(-10px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* =========================================================
+    🔐 AUTH BUTTONS (Connexion / Inscription / Dashboard / Déconnexion)
+    ========================================================== */
+    .auth-buttons {
+        gap: 1rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        max-height: 0;
+        visibility: hidden;
+        overflow: hidden;
+        transition: all 0.4s ease;
+    }
+
+
+    .auth-buttons .btn-login,
+    .auth-buttons .btn-register,
+    .auth-buttons .btn-logout {
+        width: 80%;
+        max-width: 250px;
+        text-align: center;
+        font-size: 0.95rem;
+        padding: 0.55rem 0;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    /* Connexion / Dashboard */
+    .auth-buttons .btn-login {
+        background: #00c896;
+        color: white;
+        border: 2px solid #00c896;
+    }
+
+    .auth-buttons .btn-login:hover {
+        background: #00a87a;
+        border-color: #00a87a;
+    }
+
+    /* Inscription */
+    .auth-buttons .btn-register {
+        border: 2px solid #00c896;
+        color: #00c896;
+        background: transparent;
+    }
+
+    .auth-buttons .btn-register:hover {
+        background: rgba(0, 200, 150, 0.1);
+    }
+
+    /* Déconnexion */
+    .auth-buttons .btn-logout {
+        border: 2px solid #d9534f;
+        color: #d9534f;
+        background: transparent;
+    }
+
+    .auth-buttons .btn-logout:hover {
+        background: rgba(217, 83, 79, 0.1);
+    }
+
+    /* =========================================================
+🎯 HERO - Version mobile 768 
+========================================================== */
+    .hero {
+        padding: 3rem 1rem;
+        background: linear-gradient(to right, #222222 0%, #630c49 50%, rgba(0, 0, 0, 0.641) 100%), url(/src/assets/img/banner/fullwidthdedicated-server.webp) center / cover no-repeat;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+        max-width: 95%;
+    }
+
+    /* ===== Texte ===== */
+    .hero-text {
+        order: 1;
+        margin-top: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+        color: #e6e6e6;
+        line-height: 1.6;
+        max-width: 90%;
+        margin: 0 auto 1.5rem auto;
+        text-align: center;
+    }
+
+
+    /* ===== Image ===== */
+    .hero-image {
+        order: 1 !important;
+        /* ✅ image vient après le texte et les boutons */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 3.5rem;
+    }
+
+    .hero-image img {
+        order: 2 !important;
+        width: 100%;
+        max-width: 380px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 200, 150, 0.3);
+    }
+
+    /* ===== Boutons ===== */
+    .hero-buttons {
+        order: 3;
+        /* ✅ vient juste après le texte */
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-top: 0.5rem;
+    }
+
+    .hero-buttons .btn,
+    .hero-buttons .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+
+
+
+    /* FEATURES */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    /* SHOWCASE */
+    .showcase-container {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .showcase-card img {
+        width: 100%;
+        height: auto;
+    }
+
+
+    .languages {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1.8rem;
+    }
+
+    .languages .lang {
+        font-size: 0.95rem;
+        justify-content: center;
+    }
+
+    .flag-icon {
+        width: 32px;
+        height: 20px;
+        box-shadow: 0 0 6px rgba(0, 200, 150, 0.3);
+    }
+
+
+    /* 🎯 Boutons CTA */
+    .showcase-buttons {
+        flex-direction: column;
+        align-items: left;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .showcase-buttons .btn-primary,
+    .showcase-buttons .btn-secondary {
+        width: 100%;
+        font-size: 1rem;
+        padding: 1rem 0;
+    }
+
+
+    /* Empêche le scroll derrière la lightbox */
+    .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: none;
+        /* ✅ Supprime le blur */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 3000;
+        padding: 1rem;
+        animation: fadeInLightbox 0.3s ease;
+    }
+
+    /* 🖼 Image bien centrée et ajustée */
+    .lightbox-img {
+        width: 92%;
+        max-width: 420px;
+        max-height: 70vh;
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 200, 150, 0.25);
+        border: 1px solid rgba(0, 200, 150, 0.25);
+        animation: zoomInLightbox 0.4s ease;
+    }
+
+    /* ❌ Bouton Fermer */
+    .lightbox-close {
+        position: fixed;
+        top: 14px;
+        right: 14px;
+        font-size: 2.2rem;
+        color: #00e6a8;
+        background: rgba(0, 0, 0, 0.3);
+        border: none;
+        border-radius: 50%;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 8px rgba(0, 200, 150, 0.3);
+        cursor: pointer;
+        z-index: 3100;
+    }
+
+    /* ⬅️➡️ Flèches navigation */
+    .lightbox-arrow {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        color: #00e6a8;
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 50%;
+        border: none;
+        width: 46px;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 8px rgba(0, 200, 150, 0.25);
+        z-index: 3100;
+    }
+
+    .lightbox-arrow.left {
+        left: 12px;
+    }
+
+    .lightbox-arrow.right {
+        right: 12px;
+    }
+
+    /* ✅ Supprime hover sur mobile */
+    .lightbox-close:active,
+    .lightbox-arrow:active {
+        transform: scale(0.95) translateY(-50%);
+        opacity: 0.8;
+    }
+
+
+    /* 🧱 Carte principale */
+    .licenses-card {
+        width: 92%;
+        padding: 1.8rem 1.4rem;
+        margin: 2rem auto;
+        border-radius: 20px;
+        background: linear-gradient(145deg, #ffffff, #f0fdf9);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 26px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    /* 💬 Titres */
+    .licenses-title {
+        text-align: center;
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: #00c896;
+        margin-bottom: 0.4rem;
+        letter-spacing: 0.3px;
+    }
+
+    .licenses-subtitle {
+        text-align: center;
+        font-size: 1rem;
+        color: #444;
+        margin-bottom: 1.8rem;
+        line-height: 1.6;
+    }
+
+    /* 🎴 Structure : chaque licence devient une carte verticale */
+    .licenses-table {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .licenses-table thead {
+        display: none;
+    }
+
+    .licenses-table tr {
+        background: linear-gradient(135deg, #ffffff, #ebfffa);
+        border-radius: 18px;
+        padding: 1.4rem 1.2rem;
+        box-shadow: 0 5px 16px rgba(0, 200, 150, 0.18);
+        border: 1px solid rgba(0, 200, 150, 0.25);
+        animation: fadeInUp 0.45s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* 🧾 Ligne clé */
+    .licenses-table td:nth-child(1) {
+        font-family: "Consolas", monospace;
+        font-size: 0.95rem;
+        word-break: break-all;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #e6e6e6;
+        padding-bottom: 0.6rem;
+    }
+
+    /* 📋 Bouton copier */
+    .copy-btn {
+        background: transparent;
+        color: #fff;
+        border: 1px solid #00c896;
+        padding: 0.35rem 0.5rem;
+        /* 🔹 plus compact */
+        border-radius: 6px;
+        font-size: 0.9rem;
+        /* 🔹 plus petit texte/icône */
+        box-shadow: 0 2px 6px rgba(0, 200, 150, 0.25);
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        /* 🔹 carré plus fin */
+    }
+
+    .copy-btn:hover {
+        transform: translateY(-2px);
+        background: #00b383;
+    }
+
+    .copy-btn:active {
+        transform: scale(0.94);
+        background: #00a474;
+        box-shadow: 0 2px 4px rgba(0, 200, 150, 0.25);
+    }
+
+    /* 📱 Section infos (type, expiration, statut, action) */
+    .licenses-table td:not(:first-child) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        padding: 0.5rem 0;
+    }
+
+    .licenses-table td:last-child {
+        border-bottom: none;
+    }
+
+    .licenses-table td:nth-child(2)::before {
+        content: "Type : ";
+    }
+
+    .licenses-table td:nth-child(3)::before {
+        content: "Expiration : ";
+    }
+
+    .licenses-table td:nth-child(4)::before {
+        content: "Statut : ";
+    }
+
+    .licenses-table td:nth-child(5)::before {
+        content: "Action : ";
+    }
+
+    .licenses-table td::before {
+        font-weight: 600;
+        color: #000000;
+        font-size: 0.95rem;
+    }
+
+    /* 💎 Badges */
+    .badge-trial {
+        background: #ffe16b;
+        color: #000;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.85rem;
+        box-shadow: 0 3px 8px rgba(255, 225, 107, 0.3);
+    }
+
+    .badge-paid {
+        background: #00c896;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .badge-active {
+        background: #d8f5e8;
+        color: #06764c;
+        border: 1px solid #00c896;
+        padding: 0.3rem 0.8rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    .badge-expired {
+        background: #ffe6e6;
+        color: #b32d2d;
+        border: 1px solid #b32d2d;
+        border-radius: 8px;
+        padding: 0.3rem 0.8rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    /* 🚫 Action vide */
+    .no-action {
+        color: #888;
+        font-style: italic;
+    }
+
+    /* 🔙 Bouton retour */
+    .btn-gray {
+        width: 100%;
+        font-size: 1rem;
+        padding: 1rem;
+        border-radius: 12px;
+        margin-top: 1.8rem;
+        background: #f5f5f5;
+        color: #333;
+        font-weight: 600;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+    }
+
+    .btn-gray:active {
+        background: #e2e2e2;
+        transform: scale(0.98);
+    }
+
+    .licenses-footer {
+        margin-top: 1.8rem;
+        margin-bottom: 1.2rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* ✨ Animation d’apparition */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+    /* PRICING */
+    .pricing-cards {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    /* CONTACT */
+    .contact-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .contact-form {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    /* FOOTER */
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.2rem;
+    }
+
+    .footer p {
+        font-size: 0.9rem;
+    }
+
+    .footer .social-links {
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+
+/* =========================================================
+📱 ULTRA PETIT (max-width: 480px)
+========================================================= */
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .navbar a {
+        font-size: 0.9rem;
+    }
+
+    .btn-login,
+    .btn-register {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .footer {
+        font-size: 0.85rem;
+    }
+}

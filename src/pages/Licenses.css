@@ -1,0 +1,312 @@
+/* 🌿 === PAGE LICENCES === */
+.licenses-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #004d40, #009688, #00695c);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* === Logo / Titre principal === */
+.logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.5rem;
+}
+
+.dashboard-logo {
+    height: 35px;
+}
+
+.dashboard-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00c896;
+}
+
+/* === Carte principale === */
+.licenses-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 950px;
+    width: 90%;
+    margin-top: 0rem;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    animation: fadeIn 0.6s ease-in-out;
+    transition: all 0.3s ease;
+}
+
+/* Effet subtil au survol de la carte */
+.licenses-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* === Titres === */
+.licenses-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00c896;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.licenses-subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* === Message API === */
+.license-message {
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    padding: 0.9rem;
+    border-radius: 8px;
+    background: rgba(241, 241, 241, 0.8);
+    border-left: 4px solid #00c896;
+    color: #333;
+    text-align: center;
+}
+
+.license-message::before {
+    content: "ℹ️ ";
+}
+
+/* === Tableau Licences === */
+.licenses-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+
+.licenses-table th,
+.licenses-table td {
+    padding: 0.9rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.licenses-table th {
+    background: linear-gradient(135deg, #00c896, #00b080);
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* ✅ Hover modernisé */
+.licenses-table tr {
+    transition: all 0.2s ease;
+}
+
+.licenses-table tr:hover {
+    background: rgba(0, 200, 150, 0.08);
+    transform: scale(1.005);
+}
+
+.licenses-table td {
+    color: #333;
+    font-family: "Consolas", monospace;
+    word-break: break-word;
+}
+
+/* === Badges === */
+.badge {
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.badge-trial {
+    background: linear-gradient(135deg, #ffe680, #f1c40f);
+    color: #000;
+}
+
+.badge-paid {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: #fff;
+}
+
+/* === Statuts === */
+.badge-active {
+    color: #0f5132;
+    background: #d1e7dd;
+    border: 1px solid #0f5132;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.badge-expired {
+    color: #842029;
+    background: #f8d7da;
+    border: 1px solid #842029;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* === Bouton copier clé === */
+.copy-btn {
+    margin-left: 8px;
+    background: transparent;
+    border: 1px solid #009e78;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #fff;
+    padding: 0.4rem 0.55rem;
+    border-radius: 10px;
+    transition: all 0.25s ease-in-out;
+}
+
+
+/* ✨ Hover élégant et cohérent */
+.copy-btn:hover {
+    background: #00b383;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(0, 200, 150, 0.4);
+}
+
+/* === Bouton verrouillé / inactif === */
+.btn-renew {
+    background: #3498db;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* === Bouton retour === */
+.btn-gray {
+    background: #efefef;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.btn-gray:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 200, 150, 0.15);
+}
+
+/* === Section footer === */
+.licenses-footer {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .licenses-card {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    .licenses-table th,
+    .licenses-table td {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+
+    .btn-gray {
+        width: 100%;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* === 🌿 Style de la boîte de licence générée === */
+.license-box {
+    background: linear-gradient(135deg, #e6fff3, #f7fffb);
+    border-left: 5px solid #00c48c;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    padding: 20px 25px;
+    margin-top: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.license-box h3 {
+    font-size: 1.3rem;
+    color: #008f6b;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.license-box p {
+    font-size: 1rem;
+    color: #333;
+    margin: 6px 0;
+}
+
+.license-box strong {
+    color: #006d54;
+    font-weight: 600;
+}
+
+/* ✅ Message succès (au-dessus de la licence) */
+.license-success {
+    background-color: #d1f7e5;
+    border: 1px solid #00b87b;
+    color: #006d54;
+    border-radius: 10px;
+    padding: 12px 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

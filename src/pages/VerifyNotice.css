@@ -1,0 +1,141 @@
+/* --- Page globale --- */
+.verify-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a1c20, #00b894);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+}
+
+/* --- Carte centrale --- */
+.verify-card {
+    background: rgb(12 9 9 / 39%);
+    border: 1px solid rgba(0, 255, 200, 0.1);
+    box-shadow: 0 0 30px rgba(0, 200, 150, 0.3);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    width: 90%;
+    max-width: 550px;
+    color: #eafaf6;
+    backdrop-filter: blur(12px);
+    animation: fadeIn 1.2s ease;
+}
+
+/* --- Animation d’apparition de la carte --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- HEADER Titre + Icône --- */
+.verify-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    animation: popIn 0.8s ease forwards;
+}
+
+.verify-header .icon {
+    font-size: 1.7rem;
+    text-shadow: 0 0 8px rgba(0, 255, 200, 0.4);
+    transform: translateY(2px);
+}
+
+.verify-header h2 {
+    color: #00e6aa;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(0, 255, 200, 0.3);
+}
+
+/* --- Animation douce du titre --- */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* --- Paragraphe --- */
+.verify-card p {
+    font-size: 1rem;
+    color: #cde8e3;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* --- Bouton --- */
+.resend-btn {
+    background: linear-gradient(135deg, #00c896, #00e6aa);
+    color: #0b1a26;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    padding: 0.9rem 1.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 230, 170, 0.4);
+}
+
+.resend-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 230, 170, 0.7);
+}
+
+.resend-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* --- Animation de chargement --- */
+.resend-btn.loading {
+    background: linear-gradient(90deg, #00e6aa, #00c896, #00e6aa);
+    background-size: 200%;
+    animation: shimmer 2s infinite linear;
+    color: #0b1a26;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 200%;
+    }
+}
+
+/* --- Message résultat --- */
+.verify-message {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.verify-message.success {
+    color: #00ffb3;
+    text-shadow: 0 0 10px rgba(0, 255, 170, 0.4);
+}
+
+.verify-message.error {
+    color: #ff4d4d;
+    text-shadow: 0 0 10px rgba(255, 77, 77, 0.3);
+}

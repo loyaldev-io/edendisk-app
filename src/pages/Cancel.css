@@ -1,0 +1,72 @@
+/* 🌿 Style commun pour Success et Cancel */
+.success-page {
+    background: linear-gradient(135deg, #00856f, #009b7d);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 50px 70px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.success-icon {
+    font-size: 60px;
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    background-color: #d4edda;
+}
+
+.success-title {
+    font-size: 28px;
+    color: #0d8563;
+    margin-bottom: 15px;
+}
+
+.success-text {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.success-button {
+    background: #00c897;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 5px 10px rgba(0, 200, 151, 0.4);
+}
+
+.success-button:hover {
+    background: #00b389;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
