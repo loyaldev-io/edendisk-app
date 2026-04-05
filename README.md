@@ -1,12 +1,69 @@
-# 🚀 EdenDisk App
+<!-- ===================== HEADER ===================== -->
 
-EdenDisk is a SaaS platform designed to manage storage systems with licensing, subscriptions and automation.
+<p align="center">
+  <img src="https://edendisk.com/dist/assets/edendisk-D3zKQ8gj.ico" width="90"/>
+</p>
+
+<h1 align="center">EdenDisk</h1>
+
+<p align="center">
+  🧠 Storage SaaS Platform
+</p>
+
+<p align="center">
+  Manage storage systems, licenses and subscriptions with a modern SaaS platform
+</p>
+
+<p align="center">
+  <a href="https://edendisk.com">
+    <img src="https://img.shields.io/badge/🚀 Live Demo-2563eb?style=for-the-badge"/>
+  </a>
+</p>
 
 ---
 
-## 💼 Overview
+## 🚀 Overview
 
-EdenDisk helps businesses manage storage environments through a modern web application combined with a secure and scalable backend.
+EdenDisk is a modern SaaS application designed to manage storage systems with licensing, subscriptions and automation.
+
+It provides businesses with a scalable and secure platform to handle users, licenses and payments efficiently.
+
+---
+
+## ✨ Core Features
+
+* 🔐 Secure authentication system
+* 🧠 License key generation & validation
+* 💳 Stripe subscription system
+* 📧 Email automation
+* ⚙️ REST API backend
+* 🚀 Scalable SaaS architecture
+
+---
+
+## 📸 Features Preview
+
+### 📁 Disk Copy
+
+<p align="center">
+  <img src="https://edendisk.com/dist/assets/copy-CkqCMVlZ.png" width="80%"/>
+</p>
+
+---
+
+### 🧬 Disk Clone
+
+<p align="center">
+  <img src="https://edendisk.com/dist/assets/clone-QKbZuGoO.png" width="80%"/>
+</p>
+
+---
+
+### 💾 Disk Format
+
+<p align="center">
+  <img src="https://edendisk.com/dist/assets/format-BGtj8VYV.png" width="80%"/>
+</p>
 
 ---
 
@@ -16,40 +73,30 @@ EdenDisk helps businesses manage storage environments through a modern web appli
 
 * React + TypeScript
 * Vite
-* Responsive UI
 
 ### Backend
 
 * Node.js + Express
 * MongoDB
 * JWT Authentication
-* Stripe Integration
-
----
-
-## ✨ Features
-
-* 🔐 Secure authentication system
-* 🧠 License key management
-* 💳 Subscription system with Stripe
-* 📧 Email automation
-* ⚙️ REST API architecture
+* Stripe API
 
 ---
 
 ## 📁 Project Structure
 
+```
 edendisk-app/
 ├── frontend/
 ├── backend/
 ├── .env.example
-├── README.md
+```
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Install dependencies
+### Install dependencies
 
 ```bash
 npm install
@@ -57,13 +104,13 @@ npm install
 
 ---
 
-### 2. Setup environment variables
+### Setup environment
 
 Create a `.env` file based on `.env.example`
 
 ---
 
-### 3. Run the project
+### Run project
 
 ```bash
 npm run dev
@@ -71,15 +118,15 @@ npm run dev
 
 ---
 
-## 🌐 Live Demo
+## 🌐 Live Project
 
 👉 https://edendisk.com
 
 ---
 
-## 💼 About
+## 💼 About Loyaldev
 
-Developed by **Loyaldev**, focused on building scalable SaaS platforms and automation systems.
+EdenDisk is developed by **Loyaldev**, focused on building scalable SaaS platforms and business automation tools.
 
 ---
 
