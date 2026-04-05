@@ -1,4 +1,4 @@
-<!-- ===================== HEADER START ===================== -->
+<!-- ===================== HEADER ===================== -->
 
 <p align="center">
   <img src="https://edendisk.com/dist/assets/edendisk-D3zKQ8gj.ico" width="90"/>
